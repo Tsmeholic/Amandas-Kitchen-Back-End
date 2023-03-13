@@ -1,0 +1,13 @@
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/amandas-kitchen-backend/amandaskitchen', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/amandas-kitchen-backend/amandaskitchen']
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'SERVICE-NAME', '--image', 'gcr.io/amandas-kitchen-backend/amandaskitchen', '--region', 'REGION', '--platform', 'managed', '--port', '5000']
+images:
+- gcr.io/amandas-kitchen-backend/amandaskitchen
