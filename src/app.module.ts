@@ -1,11 +1,11 @@
 import { AmandasKitchenModule } from './amandaskitchen/amandaskitchen.module';
 import { AmandasKitchenService } from './amandaskitchen/amandaskitchen.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { Module } from '@nestjs/common';
 import { join } from 'path';
 import { AmandasKitchenController } from './amandaskitchen/amandaskitchen.controller';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
   imports: [
@@ -22,10 +22,10 @@ import { AmandasKitchenController } from './amandaskitchen/amandaskitchen.contro
     AmandasKitchenModule,
   ],
   controllers: [
-    AmandasKitchenController
+    AppController
   ],
   providers: [
-    AmandasKitchenService
+    AppService
   ],
 })
 
