@@ -8,6 +8,6 @@ steps:
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'SERVICE-NAME', '--image', 'gcr.io/amandas-kitchen-backend/amandaskitchen', '--region', 'REGION', '--platform', 'managed', '--port', '5000']
+  args: ['run', 'deploy', 'amandas-kitchen-back-end', '--image', 'gcr.io/amandas-kitchen-backend/amandaskitchen', '--region', 'REGION', '--platform', 'managed', '--port', '5000']
 images:
 - gcr.io/amandas-kitchen-backend/amandaskitchen

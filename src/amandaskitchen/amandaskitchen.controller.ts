@@ -1,7 +1,7 @@
 import { Controller, Get, Res, HttpStatus, Param, NotFoundException, Post, Body, Put, Query, Delete } from '@nestjs/common';
 import { ValidateObjectId } from './shared/pipes/validate-object-id.pipes';
 import { AmandasKitchenService } from './amandaskitchen.service';
-import { AddRecipeDTO } from './dto/addRecipe.dto';
+import { Recipe } from './interfaces/recipe.interface';
 
 let recipeDNE = 'Recipe has been submitted successfully!';
 
@@ -10,7 +10,7 @@ export class AmandasKitchenController {
     constructor(private amandasKitchenService: AmandasKitchenService) {}
 
     @Post('/addrecipe')
-    async addRecipe(@Res() res, @Body() addRecipeDTO: AddRecipeDTO) {
+    async addRecipe(@Res() res, @Body() addRecipeDTO: Recipe) {
         const newRecipe = await this.amandasKitchenService.addRecipe(addRecipeDTO);
         return res.status(HttpStatus.OK).json({
             message: 'Recipe has been submitted successfully!',
@@ -31,7 +31,7 @@ export class AmandasKitchenController {
     }
 
     @Put('/edit')
-    async editRecipe(@Res() res, @Query('recipeID', new ValidateObjectId()) recipeID, @Body() addRecipeDTO: AddRecipeDTO){
+    async editRecipe(@Res() res, @Query('recipeID', new ValidateObjectId()) recipeID, @Body() addRecipeDTO: Recipe){
         const editedRecipe = await this.amandasKitchenService.editRecipe(recipeID, addRecipeDTO)
         if (!editedRecipe){
             throw new NotFoundException(recipeDNE);

@@ -1,12 +1,12 @@
 import { AmandasKitchenController } from './amandaskitchen.controller';
 import { AmandasKitchenService } from './amandaskitchen.service';
-import { AmandasKitchenSchema} from './schemas/amandaskitchen.schema';
-import { MongooseModule } from '@nestjs/mongoose';
+import { Recipe } from './interfaces/recipe.interface';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
 
 @Module({
   imports: [
-      MongooseModule.forFeature([{ name: 'Recipe', schema: AmandasKitchenSchema}]),
+      TypeOrmModule.forFeature([ Recipe ]),
     ],
   providers: [
     AmandasKitchenService,
