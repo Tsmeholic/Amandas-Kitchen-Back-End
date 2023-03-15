@@ -13,10 +13,7 @@ import { Module } from '@nestjs/common';
   ],
   controllers: [
     AmandasKitchenController
-  ],
-  exports: [
-    AmandasKitchenService,
-  ],
+  ]
 })
 
 export class AmandasKitchenModule {}
