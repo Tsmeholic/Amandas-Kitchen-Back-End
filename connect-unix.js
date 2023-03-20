@@ -7,15 +7,12 @@ const createUnixSocketPool = async config => {
   // secure - consider a more secure solution such as
   // Cloud Secret Manager (https://cloud.google.com/secret-manager) to help
   // keep secrets safe.
-  return Knex({
-    client: 'pg',
-    connection: {
-      user: process.env.DB_USER, // e.g. 'my-user'
-      password: process.env.DB_PASS, // e.g. 'my-user-password'
-      database: process.env.DB_NAME, // e.g. 'my-database'
-      host: process.env.INSTANCE_UNIX_SOCKET, // e.g. '/cloudsql/project:region:instance'
-    },
-    // ... Specify additional properties here.
+  return mysql.createPool({
+    user: process.env.DB_USER, // e.g. 'my-db-user'
+    password: process.env.DB_PASS, // e.g. 'my-db-password'
+    database: process.env.DB_NAME, // e.g. 'my-database'
+    socketPath: process.env.INSTANCE_UNIX_SOCKET, // e.g. '/cloudsql/project:region:instance'
+    // Specify additional properties here.
     ...config,
   });
 };

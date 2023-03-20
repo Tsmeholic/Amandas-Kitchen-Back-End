@@ -1,13 +1,13 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/amandas-kitchen-backend/amandaskitchen', '.']
+  args: ['build', '-t', 'gcr.io/amandas-kitchen-backend/amandaskitchen:$COMMIT_SHA', '.']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/amandas-kitchen-backend/amandaskitchen']
+  args: ['push', 'gcr.io/amandas-kitchen-backend/amandaskitchen:$COMMIT_SHA']
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'amandas-kitchen-back-end', '--image', 'gcr.io/amandas-kitchen-backend/amandaskitchen', '--region', 'REGION', '--platform', 'managed', '--port', '5000']
+  args: ['run', 'deploy', 'amandas-kitchen-back-end', '--image', 'gcr.io/amandas-kitchen-backend/amandaskitchen:$COMMIT_SHA', '--region', 'us-central1']
 images:
-- gcr.io/amandas-kitchen-backend/amandaskitchen
+- 'gcr.io/amandas-kitchen-backend/amandaskitchen:$COMMIT_SHA'
