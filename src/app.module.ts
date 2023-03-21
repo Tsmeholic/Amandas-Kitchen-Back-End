@@ -25,8 +25,7 @@ import { AmandasKitchenService } from './amandaskitchen/amandaskitchen.service';
     AppController
   ],
   providers: [
-    AppService,
-    AmandasKitchenService
+    AppService
   ],
 })
 
