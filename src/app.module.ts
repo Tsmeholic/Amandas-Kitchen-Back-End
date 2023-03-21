@@ -5,6 +5,7 @@ import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AmandasKitchenController } from './amandaskitchen/amandaskitchen.controller';
+import { AmandasKitchenService } from './amandaskitchen/amandaskitchen.service';
 
 @Module({
   imports: [
@@ -21,10 +22,12 @@ import { AmandasKitchenController } from './amandaskitchen/amandaskitchen.contro
     AmandasKitchenModule,
   ],
   controllers: [
-    AppController
+    AppController,
+    AmandasKitchenController
   ],
   providers: [
-    AppService
+    AppService,
+    AmandasKitchenService
   ],
 })
 
