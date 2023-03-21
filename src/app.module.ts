@@ -21,8 +21,7 @@ import { AmandasKitchenController } from './amandaskitchen/amandaskitchen.contro
     AmandasKitchenModule,
   ],
   controllers: [
-    AppController,
-    AmandasKitchenController
+    AppController
   ],
   providers: [
     AppService
