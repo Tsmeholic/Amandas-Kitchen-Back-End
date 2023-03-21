@@ -19,7 +19,14 @@ import { AmandasKitchenController } from './amandaskitchen/amandaskitchen.contro
       synchronize: true,
     }),
     AmandasKitchenModule,
-  ]
+  ],
+  controllers: [
+    AppController,
+    AmandasKitchenController
+  ],
+  providers: [
+    AppService
+  ],
 })
 
 export class AppModule {}
