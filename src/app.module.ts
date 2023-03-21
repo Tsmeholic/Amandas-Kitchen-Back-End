@@ -4,6 +4,7 @@ import { Module } from '@nestjs/common';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AmandasKitchenController } from './amandaskitchen/amandaskitchen.controller';
 
 @Module({
   imports: [
@@ -18,13 +19,7 @@ import { AppService } from './app.service';
       synchronize: true,
     }),
     AmandasKitchenModule,
-  ],
-  controllers: [
-    AppController
-  ],
-  providers: [
-    AppService
-  ],
+  ]
 })
 
 export class AppModule {}
