@@ -1,6 +1,6 @@
 import { AmandasKitchenController } from './amandaskitchen.controller';
 import { AmandasKitchenService } from './amandaskitchen.service';
-import { Recipe } from './interfaces/recipe.interface';
+import { Recipe } from './interfaces/recipe.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
 

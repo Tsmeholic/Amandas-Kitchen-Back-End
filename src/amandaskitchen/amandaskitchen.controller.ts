@@ -1,7 +1,7 @@
 import { Controller, Get, Res, HttpStatus, Param, NotFoundException, Post, Body, Put, Query, Delete } from '@nestjs/common';
 import { ValidateObjectId } from './shared/pipes/validate-object-id.pipes';
 import { AmandasKitchenService } from './amandaskitchen.service';
-import { Recipe } from './interfaces/recipe.interface';
+import { Recipe } from './interfaces/recipe.entity';
 
 let recipeDNE = 'Recipe has been submitted successfully!';
 

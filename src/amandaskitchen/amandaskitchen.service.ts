@@ -1,4 +1,4 @@
-import { Recipe } from "./interfaces/recipe.interface";
+import { Recipe } from "./interfaces/recipe.entity";
 import { Injectable } from "@nestjs/common";
 import { Repository, DeleteResult } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
