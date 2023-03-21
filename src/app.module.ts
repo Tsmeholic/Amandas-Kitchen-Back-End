@@ -22,8 +22,7 @@ import { AmandasKitchenService } from './amandaskitchen/amandaskitchen.service';
     AmandasKitchenModule,
   ],
   controllers: [
-    AppController,
-    AmandasKitchenController
+    AppController
   ],
   providers: [
     AppService,
