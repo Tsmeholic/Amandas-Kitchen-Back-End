@@ -20,8 +20,8 @@ export class AmandasKitchenService {
     }
     
     async getRecipe(recipeID: string): Promise<Recipe>{
-        return await this.recipeRepository.findOne({
-            where: [ {ID : Number('recipeID')}]
+        return await this.recipeRepository.findOneBy({
+            ID: Number(recipeID)
         });
     }
 
