@@ -45,7 +45,7 @@ export class AmandasKitchenController {
     async getRecipe(@Res() res, @Param('recipeID') recipeID){
         const recipe = await this.amandasKitchenService.getRecipe(recipeID);
         if (!recipe){
-            throw new NotFoundException(recipeDNE);
+            return res.status(HttpStatus.I_AM_A_TEAPOT).json(recipeID);
         }
         return res.status(HttpStatus.OK).json(recipe);
     }
