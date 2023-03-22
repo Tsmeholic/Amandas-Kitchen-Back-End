@@ -8,8 +8,7 @@ export class AmandasKitchenService {
     constructor(@InjectRepository(Recipe) private recipeRepository: Repository<Recipe>) {}
 
     async addRecipe(recipe: Recipe): Promise<Recipe> {
-        const newRecipe = await this.recipeRepository.create(recipe);
-        return await this.recipeRepository.save(newRecipe);
+        return await this.recipeRepository.save(recipe);
     }
 
     async deleteRecipe(recipeID: string): Promise<DeleteResult> {
@@ -27,7 +26,6 @@ export class AmandasKitchenService {
     }
 
     async getRecipes(): Promise<Recipe[]>{
-        const recipes = await this.recipeRepository.find();
-        return recipes;
+        return await this.recipeRepository.find();
     }
 }

@@ -29,7 +29,7 @@ export class AmandasKitchenController {
         });
     }
 
-    @Put('/')
+    @Put('/edit')
     async editRecipe(@Res() res, @Query('recipeID') recipeID, @Body() addRecipeDTO: Recipe){
         const editedRecipe = await this.amandasKitchenService.editRecipe(recipeID, addRecipeDTO)
         if (!editedRecipe){
@@ -41,7 +41,7 @@ export class AmandasKitchenController {
         });
     }
     
-    @Get('/:recipeID')
+    @Get('/recipe/:recipeID')
     async getRecipe(@Res() res, @Param('recipeID') recipeID){
         const recipe = await this.amandasKitchenService.getRecipe(recipeID);
         if (!recipe){
