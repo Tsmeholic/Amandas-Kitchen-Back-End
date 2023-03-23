@@ -16,6 +16,7 @@ export class AmandasKitchenService {
     }
 
     async editRecipe(recipeID: string, recipe: Partial<Recipe>): Promise<Recipe>{
+        recipe.ID = Number(recipeID);
         return await this.recipeRepository.save(recipe);
     }
     
